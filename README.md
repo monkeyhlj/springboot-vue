@@ -1,4 +1,4 @@
-#springboot-vue (前端VUE部分)
+**springboot-vue (前端VUE部分)**
 
 简单搭建一个基于springboot+vue的小项目（前端VUE部分）
 
