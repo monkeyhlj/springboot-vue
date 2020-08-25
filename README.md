@@ -6,7 +6,10 @@
 
     npm install
 
-由于网络原因，可能以上命令会报错，可执行：
+由于网络原因，可能以上命令会报错，可执行（先安装一下淘宝镜像）：
+  ```javascript
+    npm install -g cnpm --registry=https://registry.npm.taobao.org
+  ```
 
     cnpm install
 
