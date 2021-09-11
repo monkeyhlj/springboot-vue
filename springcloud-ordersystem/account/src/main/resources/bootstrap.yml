@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: account
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8762
+      fail-fast: true

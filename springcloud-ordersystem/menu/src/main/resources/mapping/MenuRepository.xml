@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.monkeyhlj.repository.MenuRepository">
+
+    <resultMap id="menuMap" type="Menu">
+        <id property="id" column="mid"/>
+        <result property="name" column="mname"/>
+        <result property="author" column="author"/>
+        <result property="price" column="price"/>
+        <result property="flavor" column="flavor"/>
+        <!-- 映射type -->
+        <association property="type" javaType="Type">
+            <id property="id" column="tid"/>
+            <result property="name" column="tname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="menuMap">
+		select m.id mid,m.name mname,m.price,m.flavor,t.id tid,t.name tname from t_menu m,t_type t where m.tid = t.id order by mid limit #{param1},#{param2}
+	</select>
+
+    <select id="count" resultType="int">
+		select count(*) from t_menu;
+	</select>
+
+    <insert id="save" parameterType="Menu">
+		insert into t_menu(name,price,flavor,tid) values(#{name},#{price},#{flavor},#{type.id})
+	</insert>
+
+    <select id="findById" resultMap="menuMap">
+		select id mid,name mname,price,flavor,tid from t_menu where id = #{id}
+	</select>
+
+    <update id="update" parameterType="Menu">
+		update t_menu set name = #{name},price = #{price},flavor = #{flavor},tid = #{type.id} where id = #{id}
+	</update>
+
+    <delete id="deleteById" parameterType="long">
+		delete from t_menu where id = #{id}
+	</delete>
+</mapper>

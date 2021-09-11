@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8762
+      fail-fast: true
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+
+
+#spring:
+#  cloud:
+#    config:
+#      name: order #对应的配置文件名称
+#      label: master #git仓库分支名
+#      discovery:
+#        enabled: true
+#        serviceId: configserver #连接的配置中心名称
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
